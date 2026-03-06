@@ -30,21 +30,22 @@ let togglebnt = () => {
     })
 }
 
-let loadAllData = ()=>{
+let loadAllData = () => {
     fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
-    .then(res=>res.json())
-    .then(resultDate => displayContainer(resultDate.data))
+        .then(res => res.json())
+        .then(resultDate => displayContainer(resultDate.data))
 }
 
-let displayContainer =(data)=>{
+let displayContainer = (data) => {
     let outputContainer = document.getElementById("displayContainer")
     let status = document.getElementById("status")
     status.innerText = `${data.length} Issues`;
 
-    outputContainer.innerHTML="";
-    data.forEach(item=>{
+    outputContainer.innerHTML = "";
+    data.forEach(item => {
         let newDiv = document.createElement("div")
         const colorStatus = item.status.toUpperCase() == "OPEN" ? "border-green-600" : 'border-red-600'
+        const priorityStatus = item.priority.toUpperCase() == 'MEDIUM' ? "bg-blue-50 text-blue-500" : item.priority.toUpperCase() == "LOW" ? "bg-red-50 text-red-500" : "bg-green-50 text-green-500"
         newDiv.innerHTML = `
             <div class="card w-full max-w-sm h-full bg-white shadow-md rounded-lg border-t-4  overflow-hidden ${colorStatus}">
 
@@ -54,7 +55,7 @@ let displayContainer =(data)=>{
                                     <img src="./assets/Open-Status.png" alt="">
                                 </div>
                                 <span
-                                    class="bg-red-50 text-red-500 text-xs font-bold px-6 py-1.5 rounded-full tracking-wider">
+                                    class=" ${priorityStatus} text-xs font-bold px-6 py-1.5 rounded-full tracking-wider">
                                     ${item.priority.toUpperCase()}
                                 </span>
                             </div>
