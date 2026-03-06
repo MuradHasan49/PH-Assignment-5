@@ -1,5 +1,5 @@
-        console.log("wok")
-        function handleLogin(event) {
+      // login and logout function 
+      function handleLogin(event) {
             event.preventDefault();
 
             const username = document.getElementById('user').value;
@@ -10,7 +10,7 @@
 
                 document.getElementById('dashboard-section').classList.remove('hidden-section');
             } else {
-                alert("ভুল ইউজারনেম বা পাসওয়ার্ড! (Try admin & admin123)");
+                alert("Wrong Usarname or Password (Try admin & admin123)");
             }
         }
 
@@ -19,3 +19,4 @@
             document.getElementById('dashboard-section').classList.add('hidden-section');
             document.getElementById('loginForm').reset();
         }
+
