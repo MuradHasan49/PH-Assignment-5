@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/assets/github-logo.png" type="image/x-icon">
     <!-- daisyUI and tailwindcss -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -16,12 +17,52 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
     <!-- styles -->
-    <link rel="stylesheet" href="./styles/style.js">
-    <title>Document</title>
-</head>
-<h1 class="text-red-500">hello world</h1>
+    <link rel="stylesheet" href="./styles/style.css">
+    <title> GitHub Issues Tracker | Murad Hasan </title>
 
 <body>
+    <section class=" min-h-screen">
+        <div id="login-section" class="card w-[380px] bg-base-100 shadow-xl mx-auto mt-4 p-8 border border-gray-100">
+            <div class="flex flex-col items-center mb-6">
+                <img src="./assets/github-logo.png" class="w-16 mb-4">
+                <h1 class="text-2xl font-semibold text-center text-gray-800">GitHub Issues Tracker</h1>
+                <p class="text-gray-500 text-sm mt-1">Sign in to manage your issues</p>
+            </div>
+
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                <div class="form-control w-full mb-3">
+                    <label class="label"><span class="label-text font-medium">Username</span></label>
+                    <input id="user" type="text" value="admin" placeholder="admin"
+                        class="input input-bordered w-full bg-white" required />
+                </div>
+
+                <div class="form-control w-full mb-6">
+                    <label class="label"><span class="label-text font-medium">Password</span></label>
+                    <input id="pass" type="password" value="admin123" placeholder="admin123"
+                        class="input input-bordered w-full bg-white" required />
+                </div>
+
+                <button type="submit"
+                    class="btn bg-indigo-600 hover:bg-indigo-700 text-white border-none w-full capitalize text-lg">
+                    Sign In
+                </button>
+            </form>
+
+            <div class="divider text-gray-400 text-xs my-6">OR</div>
+            <div class="text-center p-4 bg-gray-50 rounded-lg text-sm">
+                <p>Username: <span class="font-bold">admin</span></p>
+                <p>Password: <span class="font-bold">admin123</span></p>
+            </div>
+        </div>
+
+        <!-- load data sectiion -->
+        <section class="w-11/12 p-6">
+            <div id="dashboard-section" class="hidden-section">
+                <button onclick="logout()" class="btn btn-outline btn-error">Logout</button>
+                <p class="text-gray-600 mb-6">Welcome to your GitHub Issue Tracker Dashboard.</p>
+            </div>
+        </section>
+    </section>
 
     <script src="./sctipts/script.js"></script>
 </body>
