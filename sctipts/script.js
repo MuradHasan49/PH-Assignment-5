@@ -38,12 +38,15 @@ let loadAllData = ()=>{
 
 let displayContainer =(data)=>{
     let outputContainer = document.getElementById("displayContainer")
+    let status = document.getElementById("status")
+    status.innerText = `${data.length} Issues`;
+
     outputContainer.innerHTML="";
     data.forEach(item=>{
-        console.log(item)
         let newDiv = document.createElement("div")
+        const colorStatus = item.status.toUpperCase() == "OPEN" ? "border-green-600" : 'border-red-600'
         newDiv.innerHTML = `
-            <div class="card w-full max-w-sm bg-white shadow-md rounded-lg border-t-4 border-green-600 overflow-hidden">
+            <div class="card w-full max-w-sm h-full bg-white shadow-md rounded-lg border-t-4  overflow-hidden ${colorStatus}">
 
                         <div class="p-5">
                             <div class="flex justify-between items-start mb-4">
@@ -52,16 +55,16 @@ let displayContainer =(data)=>{
                                 </div>
                                 <span
                                     class="bg-red-50 text-red-500 text-xs font-bold px-6 py-1.5 rounded-full tracking-wider">
-                                    HIGH
+                                    ${item.priority.toUpperCase()}
                                 </span>
                             </div>
 
                             <h2 class="text-xl font-bold text-slate-800 leading-tight mb-2">
-                                Fix Navigation Menu On Mobile Devices
+                                ${item.title}
                             </h2>
 
                             <p class="text-slate-500 text-sm mb-6">
-                                The navigation menu doesn't collapse properly on mobile devices...
+                               ${item.description}
                             </p>
 
                             <div class="flex gap-2 mb-6">
@@ -80,10 +83,10 @@ let displayContainer =(data)=>{
                             <div class="flex flex-col gap-2 text-slate-500 text-sm">
                                 <div class="flex items-center gap-2">
                                     <span class="font-medium text-slate-400">#1</span>
-                                    <span>by <span class="font-semibold text-slate-600">john_doe</span></span>
+                                    <span>by <span class="font-semibold text-slate-600">${item.author}</span></span>
                                 </div>
                                 <div class="flex justify-between items-center mt-1">
-                                    <span class="text-slate-400 font-medium tracking-wide">1/15/2024</span>
+                                    <span class="text-slate-400 font-medium tracking-wide">${item.createdAt}</span>
                                 </div>
                             </div>
                         </div>
