@@ -70,10 +70,10 @@
                     </div>
 
                     <div class="flex-none gap-2">
-                        <input type="text" placeholder="Search"
+                        <input id="search_input" type="text" placeholder="Search"
                             class="input input-sm md:input-md input-bordered w-54 sm:w-auto" />
-                        <button class="btn btn-sm md:btn-md btn-primary">
-                            <i class="fa-solid fa-plus"></i> <span class="hidden md:flex">New Issue</span>
+                        <button onclick="searchFunction(), togglebtn(this) " class="btn btn-sm md:btn-md btn-primary">
+                            <i class="fa-solid fa-plus"></i> <span  class="hidden md:flex"> New Issue</span>
                         </button>
                     </div>
                 </div>
@@ -82,7 +82,7 @@
                 <div class=" w-11/12 mx-auto my-10 shadow-lg space-x-2 p-8 text-center lg:text-start">
                     <button onclick="togglebtn(this)" class="btn btntoggle btn-primary ">All</button>
                     <button onclick="togglebtn(this)" class="btn btntoggle ">Open</button>
-                    <button onclick="togglebtn(this)" class="btn btntoggle ">Closed</button>
+                    <button onclick="togglebtn(this)"  class="btn btntoggle ">Closed</button>
                 </div>
 
                 <!-- statusbar -->
@@ -99,6 +99,13 @@
                         <span> <i class="fa-solid fa-circle text-red-600"></i> Closed</span>
                     </div>
                 </div>
+                <div id="loading-spinner" class=" w-11/12 flex justify-center items-center py-6 hidden">
+                    <span class="loading loading-spinner loading-xl w-24 text-red-600"></span>
+                </div>
+                <!-- search card container -->
+                 <div id="searchCardCont" class="w-11/12 mx-auto grid grid-cols-1 items-center md:grid-cols-3 lg:grid-cols-4 gap-4 my-6 ">
+
+                 </div>
                 <!-- card -->
                 <div id="displayContainer"
                     class=" w-11/12 mx-auto grid grid-cols-1 items-center md:grid-cols-3 lg:grid-cols-4 gap-4 my-6  card-dsiplay">
