@@ -14,11 +14,6 @@ function handleLogin(event) {
     }
 }
 
-function logout() {
-    document.getElementById('login-section').classList.remove('hidden-section');
-    document.getElementById('dashboard-section').classList.add('hidden-section');
-    document.getElementById('loginForm').reset();
-}
 // github isue status 
 let status = document.getElementById("status")
 

@@ -21,8 +21,8 @@
     <title> GitHub Issues Tracker | Murad Hasan </title>
 
 <body>
-    <section class=" min-h-screen">
-        <div id="login-section" class="card w-[380px] bg-base-100 shadow-xl mx-auto mt-4 p-8 border border-gray-100">
+    <section class="h-full">
+        <div id="login-section" class="card w-full lg:w-[380px] bg-base-100 shadow-xl mx-auto mt-20 lg:mt-4 p-8 border border-gray-100">
             <div class="flex flex-col items-center mb-6">
                 <img src="./assets/github-logo.png" class="w-16 mb-4">
                 <h1 class="text-2xl font-semibold text-center text-gray-800">GitHub Issues Tracker</h1>
@@ -32,13 +32,13 @@
             <form id="loginForm" onsubmit="handleLogin(event)">
                 <div class="form-control w-full mb-3">
                     <label class="label"><span class="label-text font-medium">Username</span></label>
-                    <input id="user" type="text" value="admin" placeholder="admin"
+                    <input id="user" type="text"  placeholder="admin"
                         class="input input-bordered w-full bg-white" required />
                 </div>
 
                 <div class="form-control w-full mb-6">
                     <label class="label"><span class="label-text font-medium">Password</span></label>
-                    <input id="pass" type="password" value="admin123" placeholder="admin123"
+                    <input id="pass" type="password"  placeholder="admin123"
                         class="input input-bordered w-full bg-white" required />
                 </div>
 
@@ -58,7 +58,6 @@
         <!-- load data sectiion -->
         <section class="">
             <div id="dashboard-section" class="hidden-section">
-                <!-- <button onclick="logout()" class="btn btn-outline btn-error">Logout</button> -->
 
                 <!-- navbar -->
                 <div class="navbar bg-base-100 shadow-sm px-4">
