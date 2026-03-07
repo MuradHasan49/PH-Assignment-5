@@ -31,6 +31,8 @@ let openCard = document.getElementById('openCard')
 let closedCard = document.getElementById('closedCard')
 //get all display section 
 let allDsiplay = document.querySelectorAll(".card-dsiplay")
+// get modalContainer 
+let modalContainer = document.getElementById("modalContainer")
 
 let togglebtn = (selectedBtn) => {
     console.log(selectedBtn)
@@ -69,11 +71,63 @@ let bugFunc = (arr) => {
 
     return arr.map(item => {
         const dynamicClass = classMap[item] || "bg-gray-100 text-gray-500 border-gray-200";
-        
+
         return `<span class="${dynamicClass} px-3 py-1 rounded-full border text-xs font-bold uppercase tracking-tight">
                     ${item}
                 </span>`;
     }).join(' ');
+}
+let modalFucntion = (id) => {
+    console.log(id)
+    fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`)
+    .then(res=> res.json())
+    .then(data=>{
+        modalDisplay(data.data)
+    })
+}
+
+let modalDisplay=(data)=>{
+    const colorStatus = data.status.toUpperCase() == "OPEN" ? "bg-green-600" : 'bg-red-600'
+    const priorityStatus = data.priority.toUpperCase() == 'MEDIUM' ? "bg-blue-50 text-blue-500 border-blue-500" : data.priority.toUpperCase() == "LOW" ? "bg-red-50 text-red-500 border-red-500" : "bg-green-50 text-green-500 border-green-500"
+    modalContainer.innerHTML="";
+
+    console.log(data.priority)
+
+    let newModalDiv = document.createElement('div')
+    newModalDiv.innerHTML =`
+                            <div class="card w-full max-w-2xl bg-base-100 ">
+                                    <div class=" space-y-4">
+                                        <h2 class="card-title text-2xl font-bold">${data.title}</h2>
+
+                                        <div class="flex items-center gap-2 text-sm text-base-content/70">
+                                            <div class="badge badge-success badge-sm py-4 px-6 text-white ${colorStatus}">${data.status.toUpperCase()}</div>
+                                            <span>• ${data.status} by ${data.author} • ${data.createdAt}</span>
+                                        </div>
+
+                                        <div class="flex gap-2">
+                                            ${bugFunc(data.labels)}
+                                        </div>
+
+                                        <p class="mt-2 text-base-content">
+                                            ${data.description}
+                                        </p>
+
+                                        <div
+                                            class="grid grid-cols-2 gap-6 mt-4 bg-base-200/50 p-4 rounded-lg bg-gray-100">
+                                            <div>
+                                                <div class="text-sm opacity-70">Assignee:</div>
+                                                <div class="font-semibold">${data.author} </div>
+                                            </div>
+                                            <div>
+                                                <div class="text-sm opacity-70">Priority:</div>
+                                                <div class="badge  font-bold ${priorityStatus} ">${data.priority.toUpperCase()} </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+    `
+    modalContainer.appendChild(newModalDiv)
+    my_modal_1.showModal()
 }
 
 let displayContainer = (data) => {
@@ -86,11 +140,12 @@ let displayContainer = (data) => {
 
         let validation = item.status == 'open'
         let validation2 = item.status == 'closed'
+        console.log()
 
         if (validation) {
             let opendiv = document.createElement('div')
             opendiv.innerHTML = `
-            <div class="card w-full max-w-sm h-full bg-white shadow-md rounded-lg border-t-4  overflow-hidden ${colorStatus}">
+            <div onclick="modalFucntion(${item.id})" class="card w-full max-w-sm h-full bg-white shadow-md rounded-lg border-t-4  overflow-hidden ${colorStatus}">
 
                         <div class="p-5">
                             <div class="flex justify-between items-start mb-4">
@@ -134,7 +189,7 @@ let displayContainer = (data) => {
         } else if (validation2) {
             let closeddiv = document.createElement('div')
             closeddiv.innerHTML = `
-                       <div class="card w-full max-w-sm h-full bg-white shadow-md rounded-lg border-t-4  overflow-hidden ${colorStatus}">
+                       <div onclick="modalFucntion(${item.id})" class="card w-full max-w-sm h-full bg-white shadow-md rounded-lg border-t-4  overflow-hidden ${colorStatus}">
 
                         <div class="p-5">
                             <div class="flex justify-between items-start mb-4">
@@ -179,8 +234,8 @@ let displayContainer = (data) => {
         }
         let newDiv = document.createElement("div")
         newDiv.innerHTML = `
-            <div class="card w-full max-w-sm h-full bg-white shadow-md rounded-lg border-t-4  overflow-hidden ${colorStatus}">
-
+            <div onclick="modalFucntion(${item.id})"  class="card w-full max-w-sm h-full bg-white shadow-md rounded-lg border-t-4  overflow-hidden ${colorStatus}">
+ 
                         <div class="p-5">
                             <div class="flex justify-between items-start mb-4">
                                 <div>

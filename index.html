@@ -104,14 +104,36 @@
                     class=" w-11/12 mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 my-6 card-dsiplay">
                 </div>
                 <!-- open card -->
-                 <div id="openCard" class="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 my-6  card-dsiplay hidden ">
-                    
-                 </div>
+                <div id="openCard"
+                    class="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 my-6  card-dsiplay hidden ">
+
+                </div>
 
                 <!-- closed Card card -->
-                 <div id="closedCard" class="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 my-6 card-dsiplay hidden">
-                    
-                 </div>
+                <div id="closedCard"
+                    class="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 my-6 card-dsiplay hidden">
+
+                </div>
+
+                <!-- modal section -->
+                <div class="">
+                    <!-- Open the modal using ID.showModal() method -->
+                    <!-- <button class="btn" onclick="my_modal_1.showModal()">open modal</button> -->
+                    <dialog id="my_modal_1" class="modal">
+                        <div class="modal-box">
+                            <div class="" id="modalContainer">
+                                
+                            </div>
+
+                            <div class="modal-action">
+                                <form method="dialog">
+                                    <!-- if there is a button in form, it will close the modal -->
+                                    <button class="btn btn-primary">Close</button>
+                                </form>
+                            </div>
+                        </div>
+                    </dialog>
+                </div>
 
             </div>
         </section>
