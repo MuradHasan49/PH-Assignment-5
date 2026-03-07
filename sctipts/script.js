@@ -145,7 +145,7 @@ let displayContainer = (data) => {
         if (validation) {
             let opendiv = document.createElement('div')
             opendiv.innerHTML = `
-            <div onclick="modalFucntion(${item.id})" class="card w-full max-w-sm h-full bg-white shadow-md rounded-lg border-t-4  overflow-hidden ${colorStatus}">
+            <div  class="card w-full h-full bg-white shadow-md rounded-lg border-t-4  overflow-hidden ${colorStatus}">
 
                         <div class="p-5">
                             <div class="flex justify-between items-start mb-4">
@@ -170,7 +170,7 @@ let displayContainer = (data) => {
                             </div>
                         </div>
 
-                        <div class="border-t border-gray-100 p-5 bg-white">
+                        <div class="border-t border-gray-200 p-5 bg-white">
                             <div class="flex flex-col gap-2 text-slate-500 text-sm">
                                 <div class="flex items-center gap-2">
                                 <span class="font-medium text-slate-400">#${item.id}</span>
@@ -189,7 +189,7 @@ let displayContainer = (data) => {
         } else if (validation2) {
             let closeddiv = document.createElement('div')
             closeddiv.innerHTML = `
-                       <div onclick="modalFucntion(${item.id})" class="card w-full max-w-sm h-full bg-white shadow-md rounded-lg border-t-4  overflow-hidden ${colorStatus}">
+                       <div class="card w-full h-full bg-white shadow-md rounded-lg border-t-4  overflow-hidden ${colorStatus}">
 
                         <div class="p-5">
                             <div class="flex justify-between items-start mb-4">
@@ -214,7 +214,7 @@ let displayContainer = (data) => {
                             </div>
                         </div>
 
-                        <div class="border-t border-gray-100 p-5 bg-white">
+                        <div class="border-t border-gray-200 p-5 bg-white">
                             <div class="flex flex-col gap-2 text-slate-500 text-sm">
                                 <div class="flex items-center gap-2">
                                 <span class="font-medium text-slate-400">#${item.id}</span>
@@ -234,7 +234,7 @@ let displayContainer = (data) => {
         }
         let newDiv = document.createElement("div")
         newDiv.innerHTML = `
-            <div onclick="modalFucntion(${item.id})"  class="card w-full max-w-sm h-full bg-white shadow-md rounded-lg border-t-4  overflow-hidden ${colorStatus}">
+            <div onclick="modalFucntion(${item.id})"  class="card w-full h-[350px] bg-white shadow-md rounded-lg border-t-4  overflow-hidden ${colorStatus}">
  
                         <div class="p-5">
                             <div class="flex justify-between items-start mb-4">
@@ -259,7 +259,7 @@ let displayContainer = (data) => {
                             </div>
                         </div>
 
-                        <div class="border-t border-gray-100 p-5 bg-white">
+                        <div class="border-t border-gray-200 p-5 bg-white">
                             <div class="flex flex-col gap-2 text-slate-500 text-sm">
                                 <div class="flex items-center gap-2">
                                 <span class="font-medium text-slate-400">#${item.id}</span>
