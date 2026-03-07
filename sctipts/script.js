@@ -80,21 +80,21 @@ let bugFunc = (arr) => {
 let modalFucntion = (id) => {
     console.log(id)
     fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`)
-    .then(res=> res.json())
-    .then(data=>{
-        modalDisplay(data.data)
-    })
+        .then(res => res.json())
+        .then(data => {
+            modalDisplay(data.data)
+        })
 }
 
-let modalDisplay=(data)=>{
+let modalDisplay = (data) => {
     const colorStatus = data.status.toUpperCase() == "OPEN" ? "bg-green-600" : 'bg-red-600'
     const priorityStatus = data.priority.toUpperCase() == 'MEDIUM' ? "bg-blue-50 text-blue-500 border-blue-500" : data.priority.toUpperCase() == "LOW" ? "bg-red-50 text-red-500 border-red-500" : "bg-green-50 text-green-500 border-green-500"
-    modalContainer.innerHTML="";
+    modalContainer.innerHTML = "";
 
     console.log(data.priority)
 
     let newModalDiv = document.createElement('div')
-    newModalDiv.innerHTML =`
+    newModalDiv.innerHTML = `
                             <div class="card w-full max-w-2xl bg-base-100 ">
                                     <div class=" space-y-4">
                                         <h2 class="card-title text-2xl font-bold">${data.title}</h2>
@@ -145,12 +145,12 @@ let displayContainer = (data) => {
         if (validation) {
             let opendiv = document.createElement('div')
             opendiv.innerHTML = `
-            <div  class="card w-full h-full bg-white shadow-md rounded-lg border-t-4  overflow-hidden ${colorStatus}">
+            <div onclick="modalFucntion(${item.id})"  class="card w-full h-full bg-white shadow-md rounded-lg border-t-4  overflow-hidden ${colorStatus}">
 
                         <div class="p-5">
                             <div class="flex justify-between items-start mb-4">
                                 <div>
-                                    <img src="./assets/Open-Status.png" alt="">
+                                    <img src="${item.status.toUpperCase() === 'OPEN' ? './assets/Open-Status.png' : './assets/Closed- Status .png'}" alt="">
                                 </div>
                                 <span
                                     class=" ${priorityStatus} text-xs font-bold px-6 py-1.5 rounded-full tracking-wider">
@@ -189,12 +189,12 @@ let displayContainer = (data) => {
         } else if (validation2) {
             let closeddiv = document.createElement('div')
             closeddiv.innerHTML = `
-                       <div class="card w-full h-full bg-white shadow-md rounded-lg border-t-4  overflow-hidden ${colorStatus}">
+                       <div onclick="modalFucntion(${item.id})"  class="card w-full h-full bg-white shadow-md rounded-lg border-t-4  overflow-hidden ${colorStatus}">
 
                         <div class="p-5">
                             <div class="flex justify-between items-start mb-4">
                                 <div>
-                                    <img src="./assets/Open-Status.png" alt="">
+                                    <img src="${item.status.toUpperCase() === 'OPEN' ? './assets/Open-Status.png' : './assets/Closed- Status .png'}" alt="">
                                 </div>
                                 <span
                                     class=" ${priorityStatus} text-xs font-bold px-6 py-1.5 rounded-full tracking-wider">
@@ -234,12 +234,12 @@ let displayContainer = (data) => {
         }
         let newDiv = document.createElement("div")
         newDiv.innerHTML = `
-            <div onclick="modalFucntion(${item.id})"  class="card w-full h-[350px] bg-white shadow-md rounded-lg border-t-4  overflow-hidden ${colorStatus}">
+            <div onclick="modalFucntion(${item.id})"  class="card w-full h-[400px] bg-white shadow-md rounded-lg border-t-4  overflow-hidden ${colorStatus}">
  
                         <div class="p-5">
                             <div class="flex justify-between items-start mb-4">
                                 <div>
-                                    <img src="./assets/Open-Status.png" alt="">
+                                    <img src="${item.status.toUpperCase() === 'OPEN' ? './assets/Open-Status.png' : './assets/Closed- Status .png'}" alt="">
                                 </div>
                                 <span
                                     class=" ${priorityStatus} text-xs font-bold px-6 py-1.5 rounded-full tracking-wider">
