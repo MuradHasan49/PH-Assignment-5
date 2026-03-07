@@ -60,6 +60,22 @@ let loadAllData = () => {
         })
 }
 
+let bugFunc = (arr) => {
+    const classMap = {
+        "bug": "bg-red-50 text-red-500 border-red-100",
+        "help wanted": "bg-yellow-50 text-yellow-600 border-yellow-100",
+        "enhancement": "bg-blue-50 text-blue-600 border-blue-100"
+    };
+
+    return arr.map(item => {
+        const dynamicClass = classMap[item] || "bg-gray-100 text-gray-500 border-gray-200";
+        
+        return `<span class="${dynamicClass} px-3 py-1 rounded-full border text-xs font-bold uppercase tracking-tight">
+                    ${item}
+                </span>`;
+    }).join(' ');
+}
+
 let displayContainer = (data) => {
     status.innerText = `${data.length} Issues`
     outputContainer.innerHTML = "";
@@ -70,7 +86,7 @@ let displayContainer = (data) => {
 
         let validation = item.status == 'open'
         let validation2 = item.status == 'closed'
-        
+
         if (validation) {
             let opendiv = document.createElement('div')
             opendiv.innerHTML = `
@@ -94,24 +110,18 @@ let displayContainer = (data) => {
                             <p class="text-slate-500 text-sm mb-6">
                                ${item.description}
                             </p>
-
-                            <div class="flex gap-2 mb-6">
-                                <div
-                                    class="flex items-center gap-1 bg-red-50 text-red-500 px-3 py-1 rounded-full border border-red-100 text-xs font-bold">
-                                    <i class="fa-solid fa-face-angry"></i> BUG
-                                </div>
-                                <div
-                                    class="flex items-center gap-1 bg-yellow-50 text-yellow-600 px-3 py-1 rounded-full border border-yellow-100 text-xs font-bold uppercase tracking-tight">
-                                    <i class="fa-solid fa-life-ring"></i> Help Wanted
-                                </div>
+                            <div class = "flex gap-2 flex-wrap" >
+                            ${bugFunc(item.labels)}
                             </div>
                         </div>
 
                         <div class="border-t border-gray-100 p-5 bg-white">
                             <div class="flex flex-col gap-2 text-slate-500 text-sm">
                                 <div class="flex items-center gap-2">
-                                    <span class="font-medium text-slate-400">#1</span>
-                                    <span>by <span class="font-semibold text-slate-600">${item.author}</span></span>
+                                <span class="font-medium text-slate-400">#${item.id}</span>
+                                    <span>by <span class="font-semibold text-slate-600">${item.author}
+                                    </span>
+                                </span>
                                 </div>
                                 <div class="flex justify-between items-center mt-1">
                                     <span class="text-slate-400 font-medium tracking-wide">${item.createdAt}</span>
@@ -123,7 +133,8 @@ let displayContainer = (data) => {
             openCard.appendChild(opendiv)
         } else if (validation2) {
             let closeddiv = document.createElement('div')
-            closeddiv.innerHTML = `<div class="card w-full max-w-sm h-full bg-white shadow-md rounded-lg border-t-4  overflow-hidden ${colorStatus}">
+            closeddiv.innerHTML = `
+                       <div class="card w-full max-w-sm h-full bg-white shadow-md rounded-lg border-t-4  overflow-hidden ${colorStatus}">
 
                         <div class="p-5">
                             <div class="flex justify-between items-start mb-4">
@@ -143,24 +154,18 @@ let displayContainer = (data) => {
                             <p class="text-slate-500 text-sm mb-6">
                                ${item.description}
                             </p>
-
-                            <div class="flex gap-2 mb-6">
-                                <div
-                                    class="flex items-center gap-1 bg-red-50 text-red-500 px-3 py-1 rounded-full border border-red-100 text-xs font-bold">
-                                    <i class="fa-solid fa-face-angry"></i> BUG
-                                </div>
-                                <div
-                                    class="flex items-center gap-1 bg-yellow-50 text-yellow-600 px-3 py-1 rounded-full border border-yellow-100 text-xs font-bold uppercase tracking-tight">
-                                    <i class="fa-solid fa-life-ring"></i> Help Wanted
-                                </div>
+                            <div class = "flex gap-2 flex-wrap" >
+                            ${bugFunc(item.labels)}
                             </div>
                         </div>
 
                         <div class="border-t border-gray-100 p-5 bg-white">
                             <div class="flex flex-col gap-2 text-slate-500 text-sm">
                                 <div class="flex items-center gap-2">
-                                    <span class="font-medium text-slate-400">#1</span>
-                                    <span>by <span class="font-semibold text-slate-600">${item.author}</span></span>
+                                <span class="font-medium text-slate-400">#${item.id}</span>
+                                    <span>by <span class="font-semibold text-slate-600">${item.author}
+                                    </span>
+                                </span>
                                 </div>
                                 <div class="flex justify-between items-center mt-1">
                                     <span class="text-slate-400 font-medium tracking-wide">${item.createdAt}</span>
@@ -194,24 +199,18 @@ let displayContainer = (data) => {
                             <p class="text-slate-500 text-sm mb-6">
                                ${item.description}
                             </p>
-
-                            <div class="flex gap-2 mb-6">
-                                <div
-                                    class="flex items-center gap-1 bg-red-50 text-red-500 px-3 py-1 rounded-full border border-red-100 text-xs font-bold">
-                                    <i class="fa-solid fa-face-angry"></i> BUG
-                                </div>
-                                <div
-                                    class="flex items-center gap-1 bg-yellow-50 text-yellow-600 px-3 py-1 rounded-full border border-yellow-100 text-xs font-bold uppercase tracking-tight">
-                                    <i class="fa-solid fa-life-ring"></i> Help Wanted
-                                </div>
+                            <div class = "flex gap-2 flex-wrap" >
+                            ${bugFunc(item.labels)}
                             </div>
                         </div>
 
                         <div class="border-t border-gray-100 p-5 bg-white">
                             <div class="flex flex-col gap-2 text-slate-500 text-sm">
                                 <div class="flex items-center gap-2">
-                                    <span class="font-medium text-slate-400">#1</span>
-                                    <span>by <span class="font-semibold text-slate-600">${item.author}</span></span>
+                                <span class="font-medium text-slate-400">#${item.id}</span>
+                                    <span>by <span class="font-semibold text-slate-600">${item.author}
+                                    </span>
+                                </span>
                                 </div>
                                 <div class="flex justify-between items-center mt-1">
                                     <span class="text-slate-400 font-medium tracking-wide">${item.createdAt}</span>

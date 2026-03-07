@@ -1,16 +1,11 @@
-function showdata (){
-    let api = "https://phi-lab-server.vercel.app/api/v1/lab/issues"
-    fetch(api)
-    .then(res=>res.json())
-    .then(data=>{
-     for (let i of data.data){
-        let vlidation = i.status == 'open'
-        if (vlidation){
-            console.log(i)
-        }else{
-            console.log("not")
-        }
-     }
-    })
+let a = ["Murad", "hasan", "shuvo"];
+
+let bugFunc = (arr) => {
+    return arr.map(item => `<span>${item}</span>`).join(' ');
 }
-showdata()
+
+console.log(bugFunc(a));
+// আউটপুট: "<span>Murad</span> <span>hasan</span> <span>shuvo</span>"  <div
+                                    class="flex items-center gap-1 bg-red-50 text-red-500 px-3 py-1 rounded-full border border-red-100 text-xs font-bold">
+                                    <i class="fa-solid fa-face-angry"></i> BUG
+                                </div
