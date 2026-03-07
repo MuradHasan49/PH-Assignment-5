@@ -80,13 +80,13 @@
 
                 <!-- toggle button -->
                 <div class=" w-11/12 mx-auto my-10 shadow-lg space-x-2 p-8 text-center lg:text-start">
-                    <button class="btn btntoggle btn-primary ">All</button>
-                    <button class="btn btntoggle ">Open</button>
-                    <button class="btn btntoggle ">Closed</button>
+                    <button onclick="togglebtn(this)" class="btn btntoggle btn-primary ">All</button>
+                    <button onclick="togglebtn(this)" class="btn btntoggle ">Open</button>
+                    <button onclick="togglebtn(this)" class="btn btntoggle ">Closed</button>
                 </div>
 
                 <!-- statusbar -->
-                 <div class="w-11/12 mx-auto p-8 shadow-lg flex justify-between items-center">
+                <div class="w-11/12 mx-auto p-8 shadow-lg flex justify-between items-center">
                     <div class="flex flex-wrap items-center gap-2">
                         <img src="./assets/Aperture.png" alt="">
                         <div class="">
@@ -98,11 +98,21 @@
                         <span> <i class="fa-solid fa-circle text-green-600"></i> Open</span>
                         <span> <i class="fa-solid fa-circle text-red-600"></i> Closed</span>
                     </div>
-                 </div>
+                </div>
                 <!-- card -->
-                <div id="displayContainer" class=" w-11/12 mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 my-6">
-
+                <div id="displayContainer"
+                    class=" w-11/12 mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 my-6 card-dsiplay">
+                </div>
+                <!-- open card -->
+                 <div id="openCard" class="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 my-6  card-dsiplay ">
                     
+                 </div>
+
+                <!-- closed Card card -->
+                 <div id="closedCard" class="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 my-6 card-dsiplay">
+                    
+                 </div>
+
             </div>
         </section>
     </section>
