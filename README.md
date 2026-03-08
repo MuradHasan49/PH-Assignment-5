@@ -7,3 +7,6 @@
 2. Ans :
          The spread operator (...) in JavaScript provides a simple and expressive way to expand elements from arrays, strings, or objects. This operator is widely used for cloning, merging, and passing values.
 
+3. Ans : 
+        You need to use map() to create a new array by applying a function to each element, such as converting an array of numbers to an array of their doubles, or extracting a list of usernames from an array of user objects.
+
