@@ -17,3 +17,7 @@
 
         filter() => When you need to select a subset of elements from an array based on a condition, such as finding numbers greater than 10 or finding all users over the age of 18, filter() should be used.
 
+4. Ans :
+        An "arrow function" is a short, modern way to write JavaScript functions using the "=>" operator instead of the word "function". It's perfect for simple, one-line tasks because it automatically returns results and keeps your code clean. By avoiding the extra setup of older functions, it helps you write faster, more readable code.
+
+5. Ans :
