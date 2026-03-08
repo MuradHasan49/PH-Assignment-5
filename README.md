@@ -21,3 +21,4 @@
         An "arrow function" is a short, modern way to write JavaScript functions using the "=>" operator instead of the word "function". It's perfect for simple, one-line tasks because it automatically returns results and keeps your code clean. By avoiding the extra setup of older functions, it helps you write faster, more readable code.
 
 5. Ans :
+        Template literals are strings written using backticks (`) that allow variables and expressions to be embedded directly. Introduced in ES6, they make strings more readable and support easy interpolation and multi-line text without complex concatenation.
