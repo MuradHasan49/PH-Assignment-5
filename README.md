@@ -1,4 +1,4 @@
-# PH-Assignment-5
+# All Questions Answered
 
 1. Ans : 
         var => Declares variables with function or global scope and allows re-declaration and updates within the same scope.
