@@ -22,7 +22,8 @@
 
 <body>
     <section class="h-full">
-        <div id="login-section" class="card w-full lg:w-[380px] bg-base-100 shadow-xl mx-auto mt-20 lg:mt-4 p-8 border border-gray-100">
+        <div id="login-section"
+            class="card w-full lg:w-[380px] bg-base-100 shadow-xl mx-auto mt-20 lg:mt-4 p-8 border border-gray-100">
             <div class="flex flex-col items-center mb-6">
                 <img src="./assets/github-logo.png" class="w-16 mb-4">
                 <h1 class="text-2xl font-semibold text-center text-gray-800">GitHub Issues Tracker</h1>
@@ -32,14 +33,14 @@
             <form id="loginForm" onsubmit="handleLogin(event)">
                 <div class="form-control w-full mb-3">
                     <label class="label"><span class="label-text font-medium">Username</span></label>
-                    <input id="user" type="text"  placeholder="admin"
-                        class="input input-bordered w-full bg-white" required />
+                    <input id="user" type="text" placeholder="admin" class="input input-bordered w-full bg-white"
+                        required />
                 </div>
 
                 <div class="form-control w-full mb-6">
                     <label class="label"><span class="label-text font-medium">Password</span></label>
-                    <input id="pass" type="password"  placeholder="admin123"
-                        class="input input-bordered w-full bg-white" required />
+                    <input id="pass" type="password" placeholder="admin123" class="input input-bordered w-full bg-white"
+                        required />
                 </div>
 
                 <button type="submit"
@@ -71,9 +72,9 @@
                     <div class="flex-none gap-2">
                         <input id="search_input" type="text" placeholder="Search"
                             class="input input-sm md:input-md input-bordered w-54 sm:w-auto" />
-                            <button onclick="searchFunction(), togglebtn(this) " class="btn btn-primary" >Search</button>
-                        <button  class="btn btn-sm md:btn-md btn-primary">
-                            <i class="fa-solid fa-plus"></i> <span  class="hidden md:flex"> New Issue</span>
+                        <button onclick="searchFunction(), togglebtn(this) " class="btn btn-primary">Search</button>
+                        <button class="btn btn-sm md:btn-md btn-primary">
+                            <i class="fa-solid fa-plus"></i> <span class="hidden md:flex"> New Issue</span>
                         </button>
                     </div>
                 </div>
@@ -82,7 +83,7 @@
                 <div class=" w-11/12 mx-auto my-10 shadow-lg space-x-2 p-8 text-center lg:text-start">
                     <button onclick="togglebtn(this)" class="btn btntoggle btn-primary ">All</button>
                     <button onclick="togglebtn(this)" class="btn btntoggle ">Open</button>
-                    <button onclick="togglebtn(this)"  class="btn btntoggle ">Closed</button>
+                    <button onclick="togglebtn(this)" class="btn btntoggle ">Closed</button>
                 </div>
 
                 <!-- statusbar -->
@@ -103,9 +104,10 @@
                     <span class="loading loading-spinner loading-xl w-24 text-red-600"></span>
                 </div>
                 <!-- search card container -->
-                 <div id="searchCardCont" class="w-11/12 mx-auto grid grid-cols-1 items-center md:grid-cols-3 lg:grid-cols-4 gap-4 my-6 ">
+                <div id="searchCardCont"
+                    class="w-11/12 mx-auto grid grid-cols-1 items-center md:grid-cols-3 lg:grid-cols-4 gap-4 my-6 ">
 
-                 </div>
+                </div>
                 <!-- card -->
                 <div id="displayContainer"
                     class=" w-11/12 mx-auto grid grid-cols-1 items-center md:grid-cols-3 lg:grid-cols-4 gap-4 my-6  card-dsiplay">
@@ -127,7 +129,7 @@
                     <dialog id="my_modal_1" class="modal">
                         <div class="modal-box">
                             <div class="" id="modalContainer">
-                                
+
                             </div>
 
                             <div class="modal-action">
